@@ -90,7 +90,7 @@
             bindings = <&to 0>;
             layers = <1>;
         };
-    }
+    };
 
         
     keymap {
