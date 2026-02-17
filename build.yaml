@@ -24,6 +24,10 @@ include:
     cmake-args: -DKCONFIG_ERROR_ON_WARNINGS=OFF
     artifact-name: sdvx
   - board: xiao_ble
+    shield: sdvx
+    cmake-args: -DKCONFIG_ERROR_ON_WARNINGS=OFF -DCONFIG_EC11=n -DCONFIG_EC11_TRIGGER_GLOBAL_THREAD=n
+    artifact-name: sdvx_no_enc
+  - board: xiao_ble
     shield: tester_xiao
     artifact-name: tester_xiao
   - board: xiao_ble
