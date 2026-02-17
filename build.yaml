@@ -22,3 +22,6 @@ include:
   - board: xiao_ble
     shield: sdvx
     cmake-args: -DKCONFIG_ERROR_ON_WARNINGS=OFF
+  - board: xiao_ble
+    shield: tester_xiao
+    artifact-name: tester_xiao
