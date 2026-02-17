@@ -14,13 +14,13 @@
         status = "okay";
         wakeup-source;
 input-gpios =
-    <&gpio1 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D8  P1.13 */
-    <&gpio1 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D7  P1.12 */
-    <&gpio1 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D6  P1.11 */
-    <&gpio0 5  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D5  P0.05 */
-    <&gpio0 4  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D4  P0.04 */
+    <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D2  P0.28 */
     <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D3  P0.29 */
-    <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D2  P0.28 */
+    <&gpio0 4  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D4  P0.04 */
+    <&gpio0 5  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D5  P0.05 */
+    <&gpio1 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D6  P1.11 */
+    <&gpio1 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D7  P1.12 */
+    <&gpio1 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D8  P1.13 */
     };
 
     keymap_sensors {
