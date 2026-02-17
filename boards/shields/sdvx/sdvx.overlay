@@ -1,22 +1,26 @@
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 
+&uicr {
+    nfct-pins-as-gpios;
+};
+
 / {
     chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
     };
 
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
         input-gpios
-            = <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D2 */
-            , <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D3 */
-            , <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>  /* D4 */
-            , <&gpio0 5 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>  /* D5 */
-            , <&gpio1 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D6 */
-            , <&gpio1 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D7 */
-            , <&gpio1 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D8 */
+            = <&xiao_d 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>
+            , <&xiao_d 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>
+            , <&xiao_d 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>
+            , <&xiao_d 5 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>
+            , <&xiao_d 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>
+            , <&xiao_d 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>
+            , <&xiao_d 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>
             ;
     };
 
@@ -29,6 +33,13 @@
         >;
     };
 
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        kscan = <&kscan0>;
+        transform = <&default_transform>;
+    };
+
     keymap_sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&ec11_right &ec11_left>;
@@ -38,15 +49,15 @@
 / {
     ec11_right: ec11_right {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  /* D0 */
-        b-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  /* D1 */
+        a-gpios = <&xiao_d 0 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        b-gpios = <&xiao_d 1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         status = "okay";
     };
 
     ec11_left: ec11_left {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D9 */
-        b-gpios = <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D10 */
+        a-gpios = <&xiao_d 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        b-gpios = <&xiao_d 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         status = "okay";
     };
 };
