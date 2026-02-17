@@ -13,6 +13,10 @@
         compatible = "zmk,kscan-gpio-direct";
         status = "okay";
         wakeup-source;
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
+        debounce-scan-period-ms = <1>;
+        poll-period-ms = <10>;
         input-gpios =
             <&xiao_d 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,
             <&xiao_d 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,
