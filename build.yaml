@@ -21,3 +21,4 @@
 include:
   - board: xiao_ble
     shield: sdvx
+    cmake-args: -DKCONFIG_ERROR_ON_WARNINGS=OFF
