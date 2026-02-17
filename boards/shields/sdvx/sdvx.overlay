@@ -34,6 +34,7 @@ input-gpios =
         compatible = "alps,ec11";
         a-gpios = <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D10 P1.15 */
         b-gpios = <&gpio1 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D9  P1.14 */
+        steps = <24>;
         status = "okay";
     };
 
@@ -41,6 +42,12 @@ input-gpios =
         compatible = "alps,ec11";
         a-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D1 P0.03 */
         b-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D0 P0.02 */
+        steps = <24>;
         status = "okay";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&ec11_left &ec11_right>;
     };
 };
