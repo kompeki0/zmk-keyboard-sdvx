@@ -14,13 +14,20 @@
         status = "okay";
         wakeup-source;
 input-gpios =
-    <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D2  P0.28 */
-    <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D3  P0.29 */
-    <&gpio0 4  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D4  P0.04 */
-    <&gpio0 5  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D5  P0.05 */
-    <&gpio1 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D6  P1.11 */
-    <&gpio1 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D7  P1.12 */
-    <&gpio1 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D8  P1.13 */
+    // <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D2  P0.28 d*/
+    // <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D3  P0.29 c*/
+    // <&gpio0 4  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D4  P0.04 f*/
+    // <&gpio0 5  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D5  P0.05 enter*/
+    // <&gpio1 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D6  P1.11 j*/
+    // <&gpio1 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D7  P1.12 m*/
+    // <&gpio1 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D8  P1.13 k*/
+    <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D10 P1.15  d*/
+    <&gpio1 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D9  P1.14  c*/
+    <&gpio0 5  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D5  P0.05 f*/
+    <&gpio1 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D7  P1.12 enter*/
+    <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D2  P0.28 j*/
+    <&gpio0 4  (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D4  P0.04 m*/
+    <&gpio1 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D8  P1.13 k*/
     };
 
     keymap_sensors {
@@ -30,18 +37,36 @@ input-gpios =
 };
 
 / {
+    // ec11_right: ec11_right {
+    //     compatible = "alps,ec11";
+    //     a-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D1 P0.03 */
+    //     b-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D0 P0.02 */
+    //     steps = <24>;
+    //     status = "okay";
+    // };
+
+    // ec11_left: ec11_left {
+    //     compatible = "alps,ec11";
+    //     a-gpios = <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D10 P1.15 */
+    //     b-gpios = <&gpio1 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D9  P1.14 */
+    //     steps = <24>;
+    //     status = "okay";
+    // };
     ec11_right: ec11_right {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D1 P0.03 */
-        b-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D0 P0.02 */
+            
+    
+        a-gpios = <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D3  P0.29 e*/
+        b-gpios = <&gpio1 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* D6  P1.11 e*/
+        
         steps = <24>;
         status = "okay";
     };
 
     ec11_left: ec11_left {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D10 P1.15 */
-        b-gpios = <&gpio1 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D9  P1.14 */
+        a-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D1 P0.03 */
+        b-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D0 P0.02 */
         steps = <24>;
         status = "okay";
     };
