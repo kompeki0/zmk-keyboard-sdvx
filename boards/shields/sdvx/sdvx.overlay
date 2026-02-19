@@ -41,8 +41,8 @@ input-gpios =
 
     ec11_left: ec11_left {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D0 P0.02 d*/
-        b-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D1 P0.03 c*/
+        a-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D1 P0.03 c*/
+        b-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* D0 P0.02 d*/
         steps = <24>;
         status = "okay";
     };
