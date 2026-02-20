@@ -6,7 +6,7 @@
 
 / {
     behaviors{
-            enc_hold_l: enc_hold_l {
+        enc_hold_l: enc_hold_l {
             compatible = "zmk,behavior-sensor-hold-step-rotate";
             #sensor-binding-cells = <0>;
             step-group-size = <0>;
@@ -75,6 +75,13 @@
             compatible = "zmk,behavior-refcount-key";
             #binding-cells = <1>;
         };
+
+        td_start: tap_dance_start {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&kp ENTER>, <&kp KP_N6>, <&kp ESC>;
+        };
     };
 
         
@@ -82,7 +89,7 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-                &kp D &kp C  &kp F  &kp ENTER  &kp J  &kp M  &kp K
+                &kp D &kp C  &kp F  &td_start  &kp J  &kp M  &kp K
             >;
             sensor-bindings = <&enc_hold_l &enc_hold_r>;
         };
