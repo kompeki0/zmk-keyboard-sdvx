@@ -79,7 +79,7 @@
         td_start: tap_dance_start {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <200>;
             bindings = <&kp ENTER>, <&kp KP_N6>, <&kp ESC>;
         };
     };
