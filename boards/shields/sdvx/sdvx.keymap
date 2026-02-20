@@ -76,11 +76,20 @@
             #binding-cells = <1>;
         };
 
+        sks: sticky_key_short {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <40>;
+            quick-release;
+            ignore-modifiers;
+        };
+
         td_start: tap_dance_start {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp ENTER>, <&kp KP_N6>, <&kp ESC>;
+            bindings = <&sks ENTER>, <&sks KP_N6>, <&sks ESC>;
         };
     };
 
